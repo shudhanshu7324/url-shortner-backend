@@ -13,7 +13,8 @@ async function handleGenerateShortUrl(req, res) {
     visitedHistory: [],
   });
 
-  return res.json({ id: shortId });
+  return res.render('home',{id: shortId})
+  // return res.json({ id: shortId });
 }
 
 async function handleGetRedirectUrl(req, res) {
