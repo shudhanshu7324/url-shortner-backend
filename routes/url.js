@@ -3,12 +3,13 @@ import {
   handleGenerateShortUrl,
   handleGetAnalytics,
   handleGetRedirectUrl,
-  handleGetAllData
+  handleGetAllData,
 } from "../controllers/url.js";
 const router = express.Router();
 
-router.get('/',handleGetAllData);
-router.post("/", handleGenerateShortUrl);
+router.route("/")
+  .get(handleGetAllData)
+  .post(handleGenerateShortUrl);
 router.get("/:shortId", handleGetRedirectUrl);
 router.get("/analytics/:shortId", handleGetAnalytics);
 
