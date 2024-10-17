@@ -43,4 +43,12 @@ async function handleGetAnalytics(req,res){
     })
 }
 
-export { handleGenerateShortUrl, handleGetRedirectUrl , handleGetAnalytics};
+async function handleGetAllData(req,res){
+  const allData = await URL.find({});
+  if(!allData){
+    return res.json({message:"Error in finding data."})
+  }
+  return res.status(200).json(allData);
+}
+
+export { handleGenerateShortUrl, handleGetRedirectUrl , handleGetAnalytics, handleGetAllData};
