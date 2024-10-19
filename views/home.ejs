@@ -16,12 +16,15 @@
           <button type="submit">Generate</button>
         </form>
       </div>
+
       <% if(locals.id) {%>
       <p>
         URL Generated:
         https://url-shortner-backend-80qb.onrender.com/api/url/<%= id %>
       </p>
       <% } %>
+
+      <h4 style="text-align: center; margin-top: 30px; text-decoration: underline;">Visit the OriginalURL at: {https://url-shortner-backend-80qb.onrender.com/api/url/:ShortId}</h4>
 
       <div class="table">
         <% if (locals.urls) { %>
@@ -37,7 +40,13 @@
             <tr>
               <td><%= index + 1 %></td>
               <td><%= url.shortId %></td>
-              <td style="display: flex; justify-content: flex-start; padding-left: 20px;">
+              <td
+                style="
+                  display: flex;
+                  justify-content: flex-start;
+                  padding-left: 20px;
+                "
+              >
                 <%= url.redirectUrl %>
               </td>
               <td><%= url.visitHistory.length %></td>
