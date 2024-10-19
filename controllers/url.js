@@ -12,8 +12,9 @@ async function handleGenerateShortUrl(req, res) {
     redirectUrl: body.url,
     visitedHistory: [],
   });
+  const allUrls = await URL.find({})
 
-  return res.render('home',{id: shortId})
+  return res.render('home',{id: shortId, urls: allUrls})
 }
 
 async function handleGetRedirectUrl(req, res) {
