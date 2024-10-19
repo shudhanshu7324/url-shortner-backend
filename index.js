@@ -27,6 +27,7 @@ connectDB()
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
+app.use(express.static('public'))
 
 // route
 app.use("/api/url", urlRoute);
