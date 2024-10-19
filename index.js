@@ -31,7 +31,7 @@ app.use(express.urlencoded({extended:false}))
 // route
 app.use("/api/url", urlRoute);
 //static router
-app.use('/',staticRoute)
+app.use('/',staticRoute);
 
 // Server
 app.listen(PORT, () => {

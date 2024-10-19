@@ -14,7 +14,6 @@ async function handleGenerateShortUrl(req, res) {
   });
 
   return res.render('home',{id: shortId})
-  // return res.json({ id: shortId });
 }
 
 async function handleGetRedirectUrl(req, res) {
