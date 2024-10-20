@@ -106,27 +106,25 @@
       </div>
 
       <% if(locals.id) {%>
-      <p style="text-align: center; margin-top: 20px; color: rgb(17, 156, 17);">
-        <span style="color: white;">URL Generated:</span>
+      <p style="text-align: center; margin-top: 20px; color: rgb(17, 156, 17)">
+        <span style="color: white">URL Generated:</span>
         https://url-shortner-backend-80qb.onrender.com/api/url/<%= id %>
       </p>
       <% } %>
-
 
       <div class="table">
         <% if (locals.urls) { %>
         <table>
           <thead>
             <th>S. No</th>
-            <th>ShortID</th>
             <th>Original Url</th>
+            <th>ShortID</th>
             <th>Clicks</th>
           </thead>
           <tbody>
             <% urls.forEach((url, index) => { %>
             <tr>
               <td><%= index + 1 %></td>
-              <td><%= url.shortId %></td>
               <td
                 style="
                   display: flex;
@@ -136,6 +134,7 @@
               >
                 <%= url.redirectUrl %>
               </td>
+              <td><%= url.shortId %></td>
               <td><%= url.visitHistory.length %></td>
             </tr>
             <% }) %>
@@ -144,12 +143,24 @@
         <% } %>
       </div>
 
-      <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"><h4
-        style="text-align: center; margin-top: 30px; margin-bottom: 30px;"
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        "
       >
-        You can visit OriginalURL at:
-    </h4>
-        <p>{https://url-shortner-backend-80qb.onrender.com/api/url/<span style="color: rgb(17, 156, 17);;">ShortId</span>}</p></div>
+        <h4 style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+          You can visit OriginalURL at:
+        </h4>
+        <p>
+          {https://url-shortner-backend-80qb.onrender.com/api/url/<span
+            style="color: rgb(17, 156, 17)"
+            >:ShortId</span
+          >}
+        </p>
+      </div>
     </div>
   </body>
 </html>

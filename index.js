@@ -1,9 +1,9 @@
 import express from "express";
-import { connectDB } from "./db.js";
+import { connectDB } from "./config/db.js";
 import urlRoute from "./routes/url.js";
-import staticRoute from './routes/staticRouter.js';
+import userRoute from "./routes/user.js";
+import staticRoute from "./routes/staticRouter.js";
 import dotenv from "dotenv";
-import path from "path";
 
 const app = express();
 
@@ -13,7 +13,6 @@ const PORT = process.env.PORT;
 
 // setting the view engine
 app.set("view engine", "ejs");
-app.set("views", path.resolve("./views"));
 
 //db connection
 connectDB()
@@ -26,13 +25,14 @@ connectDB()
 
 // middlewares
 app.use(express.json());
-app.use(express.urlencoded({extended:false}))
-app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static("public"));
 
 // route
 app.use("/api/url", urlRoute);
+app.use("/api/user", userRoute);
 //static router
-app.use('/',staticRoute);
+app.use("/", staticRoute);
 
 // Server
 app.listen(PORT, () => {
